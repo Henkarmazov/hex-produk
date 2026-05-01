@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_OWNER = process.env.GITHUB_OWNER || 'Henkaramazov';
-const GITHUB_REPO = process.env.GITHUB_REPO || 'produk-topup';
+const GITHUB_OWNER = process.env.GITHUB_OWNER || 'Henkarmazov';
+const GITHUB_REPO = process.env.GITHUB_REPO || 'hex-produk';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
 
 export const githubApi = axios.create({
