@@ -127,5 +127,13 @@
       "poster": "https://raw.githubusercontent.com/Henkarmazov/hex-produk/main/assets/poster/1777643052424-194471.jpg",
       "products": []
     }
+  ],
+  "E-Wallet": [
+    {
+      "id": "1777644516762",
+      "name": "Dana",
+      "poster": "https://raw.githubusercontent.com/Henkarmazov/hex-produk/main/assets/poster/1777644515850-194475.jpg",
+      "products": []
+    }
   ]
 }
