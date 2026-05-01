@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Catalog Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.454.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <button id="menu-toggle" class="menu-btn" aria-label="Open Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button id="close-sidebar" class="close-btn">×</button>
+        </div>
+        
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h4>Developer</h4>
+                <div class="dev-profile">
+                    <div class="profile-container" id="profile-container">
+                        <img id="dev-photo" src="/assets/profile/me.jpg" alt="Admin" class="profile-img" onerror="this.src='https://placehold.co/80x80?text=Admin'">
+                    </div>
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <span style="font-weight: 600; color: var(--text); font-size: 0.95rem;">Henkaramazov</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://myportfolio.my.id" target="_blank" title="Website">
+                            <i data-lucide="globe"></i>
+                        </a>
+                        <a href="https://www.instagram.com/hen.draprtm?igsh=MTc3anVjYzdndzd6bg==" target="_blank" title="Instagram">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1agPrMebUB/" target="_blank" title="Facebook">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@yam1suk6hiro?_r=1&_t=ZS-95ulL8565o5" target="_blank" title="Tiktok">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>Keamanan</h4>
+                <div style="padding: 0 0.5rem;">
+                    <div class="input-group" style="margin-bottom: 0.5rem;">
+                        <input type="password" id="admin-secret-input" placeholder="Kunci Admin..." style="width: 100%; padding: 0.6rem; border-radius: 0.5rem; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: #fff; font-size: 0.8rem;">
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.2;">*Diperlukan untuk menambah/menghapus data. Simpan di .env sebagai ADMIN_SECRET.</p>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>Dokumentasi</h4>
+                <ul class="doc-list">
+                    <li><a href="#" id="main-docs-link">📖 Dokumentasi</a></li>
+                    <li><a href="#" id="tutorial-link">💡 Tutorial</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>Lainnya</h4>
+                <ul class="doc-list">
+                    <li><a href="#" id="info-link">ℹ️ Informasi</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Documentation Modal -->
+    <div id="doc-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header docs-header">
+                <h3 id="doc-title">Project Setup</h3>
+                <button id="close-doc" class="close-btn">×</button>
+            </div>
+            <div class="modal-body doc-content" id="doc-body">
+                <!-- Content will be injected by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>🎮 Api Produk Game</h1>
+            <p class="brand-subtitle">Modern Gaming Store Management System</p>
+        </header>
+
+        <div id="notification-area" class="notification-container"></div>
+
+        <div class="form-switcher">
+            <button class="switch-btn active" data-tab="item">Add New Item</button>
+            <button class="switch-btn" data-tab="product">Add New Product</button>
+        </div>
+
+        <div class="slider-container">
+            <div class="slider-track" id="form-slider">
+                <!-- Add Item Form -->
+                <section class="card slider-card">
+                    <h2>Add New Item</h2>
+                    <form id="game-form">
+                        <div class="form-group">
+                            <label for="name">Item Name</label>
+                            <input type="text" id="name" required placeholder="e.g. Mobile Legends">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Key Category</label>
+                            <input type="text" id="category" required placeholder="e.g. Game or Pulsa">
+                        </div>
+                        <div class="form-group">
+                            <label>Poster Image</label>
+                            <label for="poster" class="file-upload-area">
+                                <span class="upload-icon">📁</span>
+                                <span id="file-label">Click to upload image</span>
+                                <input type="file" id="poster" required accept="image/*" style="display: none;">
+                            </label>
+                        </div>
+                        <button type="submit" id="game-form-btn" class="btn-primary">Add Item</button>
+                    </form>
+                </section>
+
+                <!-- Add Product Form -->
+                <section class="card slider-card">
+                    <h2>Add Product to Game</h2>
+                    <form id="product-form">
+                        <div class="form-group">
+                            <label>Select Item</label>
+                            <div class="custom-select-container" id="item-select-wrapper">
+                                <div class="custom-select-trigger" id="item-select-trigger">
+                                    <span id="selected-item-label">-- Select Item --</span>
+                                    <span class="toggle-icon">▼</span>
+                                </div>
+                                <div class="custom-select-dropdown" id="item-select-dropdown">
+                                    <div id="item-options-list" class="options-list">
+                                        <!-- Options will be rendered here -->
+                                    </div>
+                                </div>
+                                <input type="hidden" id="game_id" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_name">Product Name</label>
+                            <input type="text" id="product_name" required placeholder="e.g. 86 Diamonds">
+                        </div>
+                        <div class="form-group">
+                            <label>Product Icon (Optional)</label>
+                            <label for="product_icon" class="file-upload-area">
+                                <span class="upload-icon">💎</span>
+                                <span id="icon-file-label">Click to upload icon</span>
+                                <input type="file" id="product_icon" accept="image/*" style="display: none;">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <div class="input-prefix-container">
+                                <span class="input-prefix">Rp</span>
+                                <input type="text" id="price" required placeholder="20.000" autocomplete="off">
+                            </div>
+                        </div>
+                        <button type="submit" id="product-form-btn" class="btn-secondary">Add Product</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+
+        <section class="controls">
+            <button id="load-games" class="btn-load">🔄 Synchronize with GitHub</button>
+        </section>
+
+        <section id="catalog-list" class="catalog-grid">
+            <!-- Game cards will be rendered here -->
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2026 Henkaramazov All Rights Reserved</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
