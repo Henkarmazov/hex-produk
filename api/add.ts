@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import formidable from 'formidable';
 import fs from 'fs';
-import { getGithubFile, updateGithubFile, uploadToGithub, DB_PATH } from './_lib/github';
+import { getGithubFile, updateGithubFile, uploadToGithub, DB_PATH } from './_lib/github.js';
 
 export const config = {
   api: {

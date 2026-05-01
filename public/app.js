@@ -497,7 +497,7 @@ ADMIN_SECRET=<span class="code-string">"Password 123"</span></code></pre>
             <div class="doc-section" style="margin-top:3rem;">
                 <h4 style="color:var(--primary); font-size:1.1rem; border-bottom:1px solid var(--border); padding-bottom:0.5rem; margin-bottom:1rem;">2. Cara Hosting di Vercel</h4>
                 <p>Untuk hosting online agar bisa diakses publik.</p>
-                <p><strong>Vercel:</strong> Hubungkan repo Anda ke Vercel. Project ini sudah dilengkapi dengan <code>vercel.json</code> dan script build yang benar. Tambahkan Environment Variables di dashboard Vercel sesuai file <code>.env</code>. Vercel akan otomatis mendeteksi folder <code>api/</code> sebagai serverless functions dan <code>dist/</code> sebagai output statis.</p>
+                <p><strong>Vercel:</strong> Hubungkan repo Anda ke Vercel. Project ini sudah dilengkapi dengan <code>vercel.json</code> dan script build yang benar. Tambahkan Environment Variables di dashboard Vercel sesuai file <code>.env</code>. Vercel akan otomatis mendeteksi folder <code>api/</code> sebagai serverless functions dan <code>dist/</code> sebagai output statis. <strong>Penting:</strong> Pastikan menggunakan Node.js 18+ di pengaturan Vercel.</p>
             </div>
 
             <div class="doc-section" style="margin-top:3rem;">
