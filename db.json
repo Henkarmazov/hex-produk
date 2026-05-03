@@ -4,7 +4,14 @@
       "id": "1777748654517",
       "name": "Mobile Legends",
       "poster": "https://raw.githubusercontent.com/Henkarmazov/hex-produk/main/assets/poster/1777748653480-195580.jpg",
-      "products": []
+      "products": [
+        {
+          "id": "1777806174373",
+          "icon": "https://raw.githubusercontent.com/Henkarmazov/hex-produk/main/assets/icon/1777806173727-197838.jpg",
+          "name": "1x Monthly Epic Bundle",
+          "price": 72590
+        }
+      ]
     },
     {
       "id": "1777748786062",
