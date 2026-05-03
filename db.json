@@ -122,6 +122,12 @@
       "name": "ShopeePay",
       "poster": "https://raw.githubusercontent.com/Henkarmazov/hex-produk/main/assets/poster/1777804696528-197787.jpg",
       "products": []
+    },
+    {
+      "id": "1777804714982",
+      "name": "Gopay",
+      "poster": "https://raw.githubusercontent.com/Henkarmazov/hex-produk/main/assets/poster/1777804714151-197779.jpg",
+      "products": []
     }
   ]
 }
